@@ -3,12 +3,37 @@
     <ion-title>
       Ionic Blank
     </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="onButtonClicked()">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <ion-card *ngFor="let card of cardsData">
+
+      <img src="../../assets/shapes.svg" alt="">
+
+      <ion-card-header>
+        <ion-card-subtitle>{{card.subtitle}}</ion-card-subtitle>
+        <ion-card-title>{{card.title}}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content >
+        {{card.content}}
+
+        <ion-buttons class="ion-justify-content-end">
+          <ion-button color="warning" size="small" (click)="presentAlert()">
+            Alerta
+            <ion-icon slot="end" name="alert"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-card-content>
+
+    </ion-card>
   </div>
 </ion-content>
